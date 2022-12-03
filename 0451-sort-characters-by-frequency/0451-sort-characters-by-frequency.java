@@ -24,12 +24,12 @@ class Solution {
         
         Collections.sort(list,(p1,p2) -> -(p1.freq - p2.freq));
         
-        String ans = "";
+        StringBuilder sb = new StringBuilder();
         for (int i=0;i<list.size();i++){
             for (int j = 0;j<list.get(i).freq;j++){
-                ans += list.get(i).ch;
+                sb.append(list.get(i).ch);
             }
         }
-        return ans;
+        return sb.toString();
     }
 }
