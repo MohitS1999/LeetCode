@@ -41,16 +41,17 @@ class Solution {
     }
     
     private void find(TreeNode root,StringBuilder sb,int data){
-       
+        if (root == null){
+            sb.deleteCharAt(sb.length()-1);
+            return;
+        }
         if (root.val == data){
             list.add(sb.toString());
             return;
         }
-        if(root.left!=null)
-            find(root.left,sb.append("L"),data);
-        if(root.right!=null)
-            find(root.right,sb.append("R"),data);
         
+        find(root.left,sb.append("L"),data);
+        find(root.right,sb.append("R"),data);
         sb.deleteCharAt(sb.length()-1);
         return;
     }
