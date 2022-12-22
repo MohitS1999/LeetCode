@@ -56,18 +56,24 @@ class Solution
     static void rotateArr(int ar[], int d, int n)
     {
         d = d%n;
-        int newAr[] = new int[n];
-        int ind = 0;
-        for (int i=d;i<n;i++){
-            newAr[ind++] = ar[i];
-        }
-        for (int i=0;i<d;i++){
-            newAr[ind++] = ar[i];
-        }
-        for (int i=0;i<n;i++){
-            ar[i] = newAr[i];
-        }
+        //Step 1
+        reverse(0,n-1,ar);
+        //step 2
+        reverse(0,n-d-1,ar);
+        //step 3
+        reverse(n-d,n-1,ar);
         
+        
+    }
+    private static void reverse(int i,int j,int ar[]){
+        
+        while (i < j){
+            int temp = ar[i];
+            ar[i] = ar[j];
+            ar[j] = temp;
+            i++;
+            j--;
+        }
     }
     
 }
